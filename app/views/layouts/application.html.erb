@@ -10,11 +10,16 @@
   </head>
 
   <body>
-
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
 
     <div id="container">
       <ul id="nav">
-        <li id="logo">Grocery</li>
+        <li id="logo"><a href="/">Grocery</a></li>
         <li><a href="#">My Lists</a></li>
         <li><a href="#">My Recipes</a></li>
       </ul>
