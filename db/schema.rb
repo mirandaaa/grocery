@@ -10,30 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160804185733) do
-=======
-ActiveRecord::Schema.define(version: 20160804205547) do
->>>>>>> e5abff1... Generate models for FoodItem an FoodCategory as well as setting up DB tables.
-
+ActiveRecord::Schema.define(version: 20160804213803) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
-  create_table "food_categories", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.integer  "items_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "item_id"
+    t.index ["item_id"], name: "index_categories_on_item_id", using: :btree
+    t.index ["items_id"], name: "index_categories_on_items_id", using: :btree
   end
 
-  create_table "food_items", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
   end
 
->>>>>>> e5abff1... Generate models for FoodItem an FoodCategory as well as setting up DB tables.
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -51,4 +49,6 @@ ActiveRecord::Schema.define(version: 20160804205547) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "categories", "items"
+  add_foreign_key "items", "categories"
 end
