@@ -13,3 +13,54 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/restaurant_icons.png") repeat;
+  font-family: 'Lato', Helvetica, sans-serif
+}
+
+#container{
+  background: #fff;
+  width: 90%;
+  margin: 0 auto;
+
+}
+
+#content{
+  background: #fff;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1%;
+
+}
+
+#nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #339966;
+
+  #logo{
+    float: left;
+    font-size: 20px;
+  }
+
+  li {
+    float: right;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: #194d33
+  }
+}

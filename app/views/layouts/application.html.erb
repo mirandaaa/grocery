@@ -5,10 +5,23 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Reem+Kufi" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+
+    <div id="container">
+      <ul id="nav">
+        <li id="logo">Grocery</li>
+        <li><a href="#">My Lists</a></li>
+        <li><a href="#">My Recipes</a></li>
+      </ul>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
