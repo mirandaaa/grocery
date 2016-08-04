@@ -1,2 +1,0 @@
-class FoodCategory < ApplicationRecord
-end
