@@ -16,7 +16,11 @@
 
 body{
   background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/restaurant_icons.png") repeat;
-  font-family: 'Lato', Helvetica, sans-serif
+  font-family: 'Raleway', Helvetica, sans-serif;
+}
+
+h1{
+  font-family: 'Lato', Helvetica, sans-serif;
 }
 
 #container{
@@ -40,6 +44,7 @@ body{
   padding: 0;
   overflow: hidden;
   background-color: #339966;
+  font-family: 'Lato', Helvetica, sans-serif;
 
   #logo{
     float: left;
