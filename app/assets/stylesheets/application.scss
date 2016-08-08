@@ -23,6 +23,10 @@ h1{
   font-family: 'Lato', Helvetica, sans-serif;
 }
 
+a{
+  text-decoration: none;
+}
+
 #container{
   background: #fff;
   width: 90%;
@@ -62,10 +66,30 @@ h1{
     display: block;
     color: white;
     text-align: center;
-    text-decoration: none;
   }
 
   li a:hover {
     background-color: #194d33
   }
+}
+
+.alert{
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0.5%;
+  background-color: #666;
+
+  &.alert-success{
+    background-color: #194d33;
+  }
+
+  &.alert-danger{
+    background-color: #e60000;
+  }
+}
+
+#footer{
+  padding: 1%;
+  font-size: 12px;
 }
