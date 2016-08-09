@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe Category do
   let(:dairy) { Category.new(name: "dairy") }
-  let(:items) { [Item.new(name: "milk", category: dairy), Item.new(name: "eggs", category: dairy)] }
 
   it "is valid with a name" do
     dairy.should be_valid
