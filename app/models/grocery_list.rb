@@ -4,6 +4,7 @@ class GroceryList < ApplicationRecord
 
   validates_presence_of :name, :desc
 
+  scope :recent, ->{ order("created_at desc").limit(3) }
   # def item_list
   #   items.collect(&:name).join(', ')
   # end
