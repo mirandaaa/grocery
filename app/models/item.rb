@@ -6,9 +6,7 @@ class Item < ApplicationRecord
   before_validation :downcase_name
 
   def downcase_name
-    if self.name?
-      self.name.downcase!
-    end
+    self.name.downcase!
   end
 
 end
