@@ -1,6 +1,9 @@
 <h1><%= @list.name %></h1>
-<p> <%= @list.desc %> </p> <br />
-
+<p> <%= @list.desc %> </p>
+<%= link_to "Edit List", edit_grocery_list_path(@list) %>
+|
+<%= link_to "Delete List", grocery_list_path(@list), method: :delete, data: { confirm: "You are deleting #{@list.name}. Do you really want to?" } %>
+<br /><br />
 <table class="items">
 <tr><th>Fresh Produce</th><th>Grains</th></tr>
 <tr>
@@ -19,6 +22,7 @@
     </ul>
   </td>
 </tr>
+<tr class="break"><td colspan="2"></td></tr>
 <tr><th>Meat/Fish</th><th>Dairy/Eggs</th></tr>
 <tr>
   <td>
@@ -36,6 +40,7 @@
     </ul>
   </td>
 </tr>
+<tr class="break"><td colspan="2"></td></tr>
 <tr><th>Snacks</th><th>Canned/Jar</th></tr>
 <tr>
   <td>
@@ -53,6 +58,7 @@
     </ul>
   </td>
 </tr>
+<tr class="break"><td colspan="2"></td></tr>
 <tr><th>Baking</th><th>Frozen</th></tr>
 <tr>
   <td>
@@ -70,6 +76,7 @@
     </ul>
   </td>
 </tr>
+<tr class="break"><td colspan="2"></td></tr>
 <tr><th>Misc.</th></tr>
 <tr><td>
   <ul>
@@ -81,8 +88,5 @@
 </table>
 
 <br />
-<%= link_to "Edit List", edit_grocery_list_path(@list) %>
-|
-<%= link_to "Delete List", grocery_list_path(@list), method: :delete, data: { confirm: "You are deleting #{@list.name}. Do you really want to?" } %>
-<br /> <br />
+
 <%= link_to "< Back to all Grocery Lists", grocery_lists_path %>

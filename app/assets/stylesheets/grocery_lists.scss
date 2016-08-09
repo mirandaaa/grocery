@@ -21,8 +21,12 @@
     border-top-right-radius:3px;
   }
 
-  tr:nth-child(even){
-    height: 150px;
+  tr{
+    &.break, &.break td{
+      height: 15px;
+      border: none;
+      background: #fff;
+    }
   }
 
   td {
