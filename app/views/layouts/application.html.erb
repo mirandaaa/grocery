@@ -19,9 +19,9 @@
 <br />
     <div id="container">
       <ul id="nav">
-        <li id="logo"><a href="/">Grocery</a></li>
-        <li><a href="#">My Lists</a></li>
-        <li><a href="#">My Recipes</a></li>
+        <li id="logo"><%= link_to "Grocery", welcome_index_path %></li>
+        <li><a href="#">Recipes</a></li>
+        <li><%= link_to "Lists", grocery_lists_path %></li>
       </ul>
 
       <div id="content">
