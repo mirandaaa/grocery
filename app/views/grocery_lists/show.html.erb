@@ -1,5 +1,86 @@
 <h1><%= @list.name %></h1>
-<p> <%= @list.desc %> </p>
+<p> <%= @list.desc %> </p> <br />
+
+<table class="items">
+<tr><th>Fresh Produce</th><th>Grains</th></tr>
+<tr>
+  <td>
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </td>
+  <td>
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </td>
+</tr>
+<tr><th>Meat/Fish</th><th>Dairy/Eggs</th></tr>
+<tr>
+  <td>
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </td>
+  <td>
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </td>
+</tr>
+<tr><th>Snacks</th><th>Canned/Jar</th></tr>
+<tr>
+  <td>
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </td>
+  <td>
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </td>
+</tr>
+<tr><th>Baking</th><th>Frozen</th></tr>
+<tr>
+  <td>
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </td>
+  <td>
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </td>
+</tr>
+<tr><th>Misc.</th></tr>
+<tr><td>
+  <ul>
+    <li>Item #1</li>
+    <li>Item #2</li>
+    <li>Item #3</li>
+  </ul>
+</td></tr>
+</table>
+
+<br />
 <%= link_to "Edit List", edit_grocery_list_path(@list) %>
 |
 <%= link_to "Delete List", grocery_list_path(@list), method: :delete, data: { confirm: "You are deleting #{@list.name}. Do you really want to?" } %>
