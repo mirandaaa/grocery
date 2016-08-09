@@ -1,6 +1,6 @@
 class GroceryList < ApplicationRecord
   has_many :grocery_items
-  has_many :items, through: :grocery_items
+#  has_many :items, through: :grocery_items
 
   validates_presence_of :name, :desc
 
