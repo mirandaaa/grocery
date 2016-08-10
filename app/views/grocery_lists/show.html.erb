@@ -11,14 +11,26 @@
 <tr>
   <td>
     <ul>
-    <!-- If @list.items .categories includes fresh produce -->
-    <!-- List each of them as a <li> element -->
+    <% if @produce.empty? %>
+    <em> None yet </em>
+    <% else %>
+    <% @produce.each do |item| %>
+    <li> <%= item.name %> </li>
+    <% end %>
+    <% end %>
     </ul>
   </td>
   <td>
     <ul>
-      <!-- If @list.items .categories includes grains -->
-      <!-- List each of them as a <li> element -->
+
+      <% if @grains.empty? %>
+      <em> None yet </em>
+      <% else %>
+      <% @grains.each do |item| %>
+      <li> <%= item.name %> </li>
+      <% end %>
+      <% end %>
+
     </ul>
   </td>
 </tr>
@@ -27,14 +39,28 @@
 <tr>
   <td>
     <ul>
-      <!-- If @list.items .categories includes meat/fish -->
-      <!-- List each of them as a <li> element -->
+
+      <% if @meat_fish.empty? %>
+      <em> None yet </em>
+      <% else %>
+      <% @meat_fish.each do |item| %>
+      <li> <%= item.name %> </li>
+      <% end %>
+      <% end %>
+
     </ul>
   </td>
   <td>
     <ul>
-      <!-- If @list.items .categories includes dairy/eggs -->
-      <!-- List each of them as a <li> element -->
+
+      <% if @dairy_eggs.empty? %>
+      <em> None yet </em>
+      <% else %>
+      <% @dairy_eggs.each do |item| %>
+      <li> <%= item.name %> </li>
+      <% end %>
+      <% end %>
+
     </ul>
   </td>
 </tr>
@@ -43,14 +69,28 @@
 <tr>
   <td>
     <ul>
-      <!-- If @list.items .categories includes snacks -->
-      <!-- List each of them as a <li> element -->
+
+      <% if @snacks.empty? %>
+      <em> None yet </em>
+      <% else %>
+      <% @snacks.each do |item| %>
+      <li> <%= item.name %> </li>
+      <% end %>
+      <% end %>
+
     </ul>
   </td>
   <td>
     <ul>
-      <!-- If @list.items .categories includes canned/jar  -->
-      <!-- List each of them as a <li> element -->
+
+      <% if @canned_jar.empty? %>
+      <em> None yet </em>
+      <% else %>
+      <% @canned_jar.each do |item| %>
+      <li> <%= item.name %> </li>
+      <% end %>
+      <% end %>
+
     </ul>
   </td>
 </tr>
@@ -59,14 +99,24 @@
 <tr>
   <td>
     <ul>
-      <!-- If @list.items .categories includes baking -->
-      <!-- List each of them as a <li> element -->
+    <% if @baking.empty? %>
+    <em> None yet </em>
+    <% else %>
+    <% @baking.each do |item| %>
+    <li> <%= item.name %> </li>
+    <% end %>
+    <% end %>
     </ul>
   </td>
   <td>
     <ul>
-      <!-- If @list.items .categories includes frozen -->
-      <!-- List each of them as a <li> element -->
+    <% if @frozen.empty? %>
+    <em> None yet </em>
+    <% else %>
+    <% @frozen.each do |item| %>
+    <li> <%= item.name %> </li>
+    <% end %>
+    <% end %>
     </ul>
   </td>
 </tr>
@@ -74,8 +124,15 @@
 <tr><th>Misc.</th></tr>
 <tr><td>
   <ul>
-    <!-- If @list.items .categories includes misc -->
-    <!-- List each of them as a <li> element -->
+    <ul>
+    <% if @misc.empty? %>
+    <em> None yet </em>
+    <% else %>
+    <% @misc.each do |item| %>
+    <li> <%= item.name %> </li>
+    <% end %>
+    <% end %>
+    </ul>
   </ul>
 </td></tr>
 </table>
