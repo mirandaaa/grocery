@@ -4,21 +4,21 @@
 |
 <%= link_to "Delete List", grocery_list_path(@list), method: :delete, data: { confirm: "You are deleting #{@list.name}. Do you really want to?" } %>
 <br /><br />
+
+<% if !@list.items.empty? %>
 <table class="items">
 <tr><th>Fresh Produce</th><th>Grains</th></tr>
 <tr>
   <td>
     <ul>
-      <li>Item #1</li>
-      <li>Item #2</li>
-      <li>Item #3</li>
+    <!-- If @list.items .categories includes fresh produce -->
+    <!-- List each of them as a <li> element -->
     </ul>
   </td>
   <td>
     <ul>
-      <li>Item #1</li>
-      <li>Item #2</li>
-      <li>Item #3</li>
+      <!-- If @list.items .categories includes grains -->
+      <!-- List each of them as a <li> element -->
     </ul>
   </td>
 </tr>
@@ -27,16 +27,14 @@
 <tr>
   <td>
     <ul>
-      <li>Item #1</li>
-      <li>Item #2</li>
-      <li>Item #3</li>
+      <!-- If @list.items .categories includes meat/fish -->
+      <!-- List each of them as a <li> element -->
     </ul>
   </td>
   <td>
     <ul>
-      <li>Item #1</li>
-      <li>Item #2</li>
-      <li>Item #3</li>
+      <!-- If @list.items .categories includes dairy/eggs -->
+      <!-- List each of them as a <li> element -->
     </ul>
   </td>
 </tr>
@@ -45,16 +43,14 @@
 <tr>
   <td>
     <ul>
-      <li>Item #1</li>
-      <li>Item #2</li>
-      <li>Item #3</li>
+      <!-- If @list.items .categories includes snacks -->
+      <!-- List each of them as a <li> element -->
     </ul>
   </td>
   <td>
     <ul>
-      <li>Item #1</li>
-      <li>Item #2</li>
-      <li>Item #3</li>
+      <!-- If @list.items .categories includes canned/jar  -->
+      <!-- List each of them as a <li> element -->
     </ul>
   </td>
 </tr>
@@ -63,16 +59,14 @@
 <tr>
   <td>
     <ul>
-      <li>Item #1</li>
-      <li>Item #2</li>
-      <li>Item #3</li>
+      <!-- If @list.items .categories includes baking -->
+      <!-- List each of them as a <li> element -->
     </ul>
   </td>
   <td>
     <ul>
-      <li>Item #1</li>
-      <li>Item #2</li>
-      <li>Item #3</li>
+      <!-- If @list.items .categories includes frozen -->
+      <!-- List each of them as a <li> element -->
     </ul>
   </td>
 </tr>
@@ -80,12 +74,13 @@
 <tr><th>Misc.</th></tr>
 <tr><td>
   <ul>
-    <li>Item #1</li>
-    <li>Item #2</li>
-    <li>Item #3</li>
+    <!-- If @list.items .categories includes misc -->
+    <!-- List each of them as a <li> element -->
   </ul>
 </td></tr>
 </table>
+
+<% end %>
 
 <br />
 
