@@ -1,10 +1,12 @@
 <h1> Welcome to Grocery! <br /> Create, save, and organize your shopping lists and recipes. </h1>
+<% if !@recent_lists.empty? %>
 <p> Check out some recently created lists! </p>
 <ul>
   <% @recent_lists.each do |list| %>
     <li> <%= link_to list.name, grocery_lists_path(list.id) %> </li>
   <% end %>
 </ul>
+<% end %>
 <p>
 Danish cookie danish marzipan gingerbread chocolate cake powder candy. Cheesecake biscuit apple pie cotton candy sugar plum wafer. Tiramisu carrot cake chocolate candy cookie jujubes. Chocolate carrot cake gummi bears gummies pastry candy pie gummies. Pie carrot cake lemon drops caramels gummies jujubes. Chocolate sugar plum toffee gummies chupa chups. Cheesecake oat cake powder caramels.
 </p>
