@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
     @item.save
   end
 
+  def new
+    @item = Item.new
+    @categories = Category.all
+  end
+
   def item_params
     params.require(:item).permit(:name)
   end
