@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda-matchers', require: false
+  gem 'capybara'
 end
 
 group :test do
