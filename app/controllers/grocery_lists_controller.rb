@@ -11,24 +11,6 @@ class GroceryListsController < ApplicationController
 
   def show
     @list = GroceryList.find(params[:id])
-    # Collection of produce items in that list
-    @produce = @list.items.where(category_id: 1)
-    # Collection of meat/fish items in that list
-    @meat_fish = @list.items.where(category_id: 2)
-    # Collection of dairy/egg items in that list
-    @dairy_eggs = @list.items.where(category_id: 3)
-    # Collection of grains items in that list
-    @grains = @list.items.where(category_id: 4)
-    # Collection of snacks items in that list
-    @snacks = @list.items.where(category_id: 5)
-    # Collection of canned/jar items in that list
-    @canned_jar = @list.items.where(category_id: 6)
-    # Collection of baking items in that list
-    @baking = @list.items.where(category_id: 7)
-    # Collection of frozen items in that list
-    @frozen = @list.items.where(category_id: 8)
-    # Collection of misc items in that list
-    @misc = @list.items.where(category_id: 9)
   end
 
   def create

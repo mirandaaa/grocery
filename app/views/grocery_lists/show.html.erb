@@ -6,134 +6,19 @@
 <br /><br />
 
 <table class="items">
-<tr><th>Fresh Produce</th><th>Grains</th></tr>
-<tr>
-  <td>
-    <ul>
-    <% if @produce.empty? %>
+  <% Category.all.each do |category| %>
+  <tr><th> <%= category.name %> </th></tr>
+  <tr><td><ul>
+    <% if @list.items.where(category_id: category.id).empty? %>
     <em> None yet </em>
     <% else %>
-    <% @produce.each do |item| %>
+    <% @list.items.where(category_id: category.id).each do |item| %>
     <li> <%= item.name %> </li>
     <% end %>
     <% end %>
-    </ul>
-  </td>
-  <td>
-    <ul>
-
-      <% if @grains.empty? %>
-      <em> None yet </em>
-      <% else %>
-      <% @grains.each do |item| %>
-      <li> <%= item.name %> </li>
-      <% end %>
-      <% end %>
-
-    </ul>
-  </td>
-</tr>
-<tr class="break"><td colspan="2"></td></tr>
-<tr><th>Meat/Fish</th><th>Dairy/Eggs</th></tr>
-<tr>
-  <td>
-    <ul>
-
-      <% if @meat_fish.empty? %>
-      <em> None yet </em>
-      <% else %>
-      <% @meat_fish.each do |item| %>
-      <li> <%= item.name %> </li>
-      <% end %>
-      <% end %>
-
-    </ul>
-  </td>
-  <td>
-    <ul>
-
-      <% if @dairy_eggs.empty? %>
-      <em> None yet </em>
-      <% else %>
-      <% @dairy_eggs.each do |item| %>
-      <li> <%= item.name %> </li>
-      <% end %>
-      <% end %>
-
-    </ul>
-  </td>
-</tr>
-<tr class="break"><td colspan="2"></td></tr>
-<tr><th>Snacks</th><th>Canned/Jar</th></tr>
-<tr>
-  <td>
-    <ul>
-
-      <% if @snacks.empty? %>
-      <em> None yet </em>
-      <% else %>
-      <% @snacks.each do |item| %>
-      <li> <%= item.name %> </li>
-      <% end %>
-      <% end %>
-
-    </ul>
-  </td>
-  <td>
-    <ul>
-
-      <% if @canned_jar.empty? %>
-      <em> None yet </em>
-      <% else %>
-      <% @canned_jar.each do |item| %>
-      <li> <%= item.name %> </li>
-      <% end %>
-      <% end %>
-
-    </ul>
-  </td>
-</tr>
-<tr class="break"><td colspan="2"></td></tr>
-<tr><th>Baking</th><th>Frozen</th></tr>
-<tr>
-  <td>
-    <ul>
-    <% if @baking.empty? %>
-    <em> None yet </em>
-    <% else %>
-    <% @baking.each do |item| %>
-    <li> <%= item.name %> </li>
-    <% end %>
-    <% end %>
-    </ul>
-  </td>
-  <td>
-    <ul>
-    <% if @frozen.empty? %>
-    <em> None yet </em>
-    <% else %>
-    <% @frozen.each do |item| %>
-    <li> <%= item.name %> </li>
-    <% end %>
-    <% end %>
-    </ul>
-  </td>
-</tr>
-<tr class="break"><td colspan="2"></td></tr>
-<tr><th>Misc.</th></tr>
-<tr><td>
-  <ul>
-    <ul>
-    <% if @misc.empty? %>
-    <em> None yet </em>
-    <% else %>
-    <% @misc.each do |item| %>
-    <li> <%= item.name %> </li>
-    <% end %>
-    <% end %>
-    </ul>
-  </ul>
-</td></tr>
+  </ul></td></tr>
+  <tr class="break"></tr>
+  <% end %>
 </table>
 
 <br />
