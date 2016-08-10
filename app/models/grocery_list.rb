@@ -9,7 +9,7 @@ class GroceryList < ApplicationRecord
   def add_item(item_name, category_name)
     category = Category.where(name: category_name).first
     new_or_found_item = Item.find_or_create_by(name: item_name, category: category)
-    self.items += new_or_found_item
+    grocery_item = GroceryItem.create(item: new_or_found_item, grocery_list: self)
   end
 
   def categories
