@@ -14,5 +14,4 @@ describe Category do
 
   # Associations
   it { should have_many(:items) }
-
 end
