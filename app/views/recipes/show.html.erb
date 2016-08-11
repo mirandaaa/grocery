@@ -1,5 +1,10 @@
 <h1><%= @recipe.name %></h1>
 <p> <%= @recipe.desc %> </p>
+<h2> Ingredients: </h2>
+<ul>
+  <li> [Quantity] [Ingredient/Item] </li>
+</ul>
+<h2> Steps: </h2>
 <ol>
   <% @steps.each do |step| %>
   <li> <%= step %> </li>
