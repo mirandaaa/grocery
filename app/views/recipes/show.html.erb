@@ -1,8 +1,8 @@
 <h1><%= @recipe.name %></h1>
 <p> <%= @recipe.desc %> </p>
 <ol>
-  <% @recipe.steps.each do |step| %>
-  <li> <%= step.strip! %> </li>
+  <% @steps.each do |step| %>
+  <li> <%= step %> </li>
   <% end %>
 </ol>
 <%= link_to "Edit recipe", edit_recipe_path(@recipe) %>

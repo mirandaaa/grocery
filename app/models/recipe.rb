@@ -9,4 +9,5 @@ class Recipe < ApplicationRecord
   #   new_or_found_item = Item.find_or_create_by(name: item_name, category: category)
   #   ingredient = Ingredient.create(item: new_or_found_item, recipe: self)
   # end
+
 end

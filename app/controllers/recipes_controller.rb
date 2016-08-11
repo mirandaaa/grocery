@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @steps = @recipe.steps.split(",").each(&:strip)
   end
 
   def create
