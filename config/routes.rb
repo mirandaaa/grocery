@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :welcome, only: :index
   resources :grocery_lists
   post '/grocery_lists/:id/add', to: 'grocery_lists#add_item'
+  get '/grocery_lists/:id/delete/:item_id', to: 'grocery_lists#delete_item', as: 'delete_item'
 end

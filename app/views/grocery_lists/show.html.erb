@@ -13,7 +13,7 @@
     <em> None yet </em>
     <% else %>
     <% @list.items.where(category_id: category.id).each do |item| %>
-    <li> <%= item.name %> </li>
+    <li> <%= item.name %>  <%= link_to "x", delete_item_path(@list.id, item_id: item.id), id: "delete" %> </li>
     <% end %>
     <% end %>
   </ul>

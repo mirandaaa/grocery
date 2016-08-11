@@ -50,4 +50,12 @@ class GroceryListsController < ApplicationController
     @list.add_item(params[:grocery_list][:item_name], @category.name)
     redirect_to grocery_list_path(@list.id)
   end
+
+  def delete_item
+    @list = GroceryList.find(params[:id])
+    @item = Item.find(params[:item_id])
+    @list.items.delete(@item)
+    redirect_to grocery_list_path(@list.id)
+  end
+
 end
