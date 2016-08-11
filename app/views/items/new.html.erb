@@ -1,5 +1,5 @@
-<h1> Add a new item </h1>
-<%= form_for(@item) do |f| %>
+<h1> Add a new item to <%= @list.name %> </h1>
+<%= form_for [@list, @item] do |f| %>
   <ul>
   <% @item.errors.full_messages.each do |error| %>
     <li><%= error %></li>

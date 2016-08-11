@@ -7,8 +7,8 @@
 
 <table class="items">
   <% Category.all.each do |category| %>
-  <tr><th> <%= category.name %> </th></tr>
-  <tr><td><ul>
+  <tr><th> <%= category.name %></th></tr>
+  <tr><td><ul id="<%= category.name %>">
     <% if @list.items.where(category_id: category.id).empty? %>
     <em> None yet </em>
     <% else %>
@@ -16,7 +16,16 @@
     <li> <%= item.name %> </li>
     <% end %>
     <% end %>
-  </ul></td></tr>
+  </ul>
+<br /><br />
+<%= form_for :grocery_list, url: {action: :add_item}  do |f| %>
+  <%= f.text_field :item_name %>
+  <%= f.hidden_field :category_id, value: category.id %>
+  <%= f.hidden_field :list_id, value: @list.id %>
+  <%= f.submit "Add Item" %>
+<% end %>
+
+</td></tr>
   <tr class="break"></tr>
   <% end %>
 </table>
