@@ -1,0 +1,22 @@
+<%= form_for(@recipe) do |f| %>
+  <ul>
+  <% @recipe.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :desc %><br />
+    <%= f.text_area :desc %>
+  </p>
+  <p>
+    <%= f.label :steps %> <br />
+    <%= f.text_area :steps %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

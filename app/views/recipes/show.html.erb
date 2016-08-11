@@ -1,0 +1,16 @@
+<h1><%= @recipe.name %></h1>
+<p> <%= @recipe.desc %> </p>
+<ol>
+  <% @recipe.steps.each do |step| %>
+  <li> <%= step.strip! %> </li>
+  <% end %>
+</ol>
+<%= link_to "Edit recipe", edit_recipe_path(@recipe) %>
+|
+<%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: "You are deleting #{@recipe.name}. Do you really want to?" } %>
+<br /><br />
+
+
+<br />
+
+<%= link_to "< Back to all Recipes", recipes_path %>
