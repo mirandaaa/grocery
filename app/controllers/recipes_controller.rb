@@ -44,4 +44,9 @@ class RecipesController < ApplicationController
     flash.notice = "Grocery recipe '#{@recipe.name}' Deleted!"
     redirect_to recipes_path
   end
+
+  private
+  def recipe_params
+    params.require(:recipe).permit(:name, :desc, :steps, items_attributes: [:id, :name, :category_id] )
+  end
 end
