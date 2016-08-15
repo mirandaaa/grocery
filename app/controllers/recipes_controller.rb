@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.items.build
   end
 
   def show
@@ -19,10 +20,14 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.save
-    flash.notice = "Recipe '#{@recipe.name}' Created!"
-    redirect_to recipe_path(@recipe)
+    @recipe = RecipeManager.build_recipe(recipe_params)
+    if @recipe.save
+      flash.notice = "Recipe '#{@recipe.name}' Created!"
+      redirect_to recipe_path(@recipe)
+    else
+      flash.notice = "Recipe '#{@recipe.name}' could not be created!"
+      redirect_to new_recipe_path
+    end
   end
 
   def edit
