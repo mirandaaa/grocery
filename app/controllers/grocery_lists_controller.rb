@@ -46,13 +46,15 @@ class GroceryListsController < ApplicationController
   end
 
   def add_item
-    @list.add_item(params[:grocery_list][:item_name], params[:grocery_list][:category_id])
+    category = Category.find(params[:grocery_list][:category_id])
+    new_or_found_item = Item.find_or_create_by(name: params[:grocery_list][:item_name], category: category)
+    @list.items << new_or_found_item
     redirect_to grocery_list_url(@list)
   end
 
   def delete_item
     @item = Item.find(params[:item_id])
-    @list.items.delete(@item)
+    @list.items.destroy(@item)
     redirect_to grocery_list_url(@list)
   end
 
