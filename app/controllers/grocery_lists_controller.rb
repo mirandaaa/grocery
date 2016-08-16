@@ -1,6 +1,6 @@
 class GroceryListsController < ApplicationController
   include GroceryListsHelper
-  before_action :find_list, only: [:show, :edit, :update, :destroy, :add_item, :delete_item]
+  before_action :find_list, except: [:index, :new, :create]
 
   def find_list
     @list = GroceryList.find(params[:id])
@@ -49,5 +49,10 @@ class GroceryListsController < ApplicationController
     @item = Item.find(params[:item_id])
     @list.items.delete(@item)
     redirect_to grocery_list_path(@list)
+  end
+
+  private
+  def list_params
+    params.require(:grocery_list).permit(:name, :desc, :item_list)
   end
 end
