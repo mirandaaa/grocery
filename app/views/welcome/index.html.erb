@@ -1,7 +1,12 @@
 <h1> Welcome to Grocery! <br /> Create, save, and organize your shopping lists and recipes. </h1>
-<p> Jelly beans cake cheesecake lemon drops. Gingerbread dessert marshmallow jelly beans sweet roll toffee topping carrot cake tart. Jujubes donut brownie tootsie roll dragée donut. Jelly-o apple pie muffin wafer. Cheesecake pudding croissant chocolate cake jelly beans bear claw halvah ice cream. Cotton candy tootsie roll pudding. Cake wafer macaroon macaroon cookie candy toffee wafer. Sugar plum halvah donut oat cake lollipop. Ice cream jujubes pudding croissant biscuit macaroon muffin marzipan dessert.
-Cookie gummi bears powder muffin. Gummi bears sesame snaps sesame snaps cake danish candy canes chocolate bar caramels. Candy gummi bears donut fruitcake carrot cake tart bear claw brownie. Topping cake caramels chocolate. Soufflé cheesecake jujubes dessert tiramisu. Sweet marshmallow powder gingerbread marshmallow toffee dessert.
-</p>
+<% if !@recent_lists.empty? %>
+<p> Check out some recently created lists! </p>
+<ul>
+  <% @recent_lists.each do |list| %>
+    <li> <%= link_to list.name, grocery_list_path(list.id) %> </li>
+  <% end %>
+</ul>
+<% end %>
 <p>
 Danish cookie danish marzipan gingerbread chocolate cake powder candy. Cheesecake biscuit apple pie cotton candy sugar plum wafer. Tiramisu carrot cake chocolate candy cookie jujubes. Chocolate carrot cake gummi bears gummies pastry candy pie gummies. Pie carrot cake lemon drops caramels gummies jujubes. Chocolate sugar plum toffee gummies chupa chups. Cheesecake oat cake powder caramels.
 </p>

@@ -1,0 +1,35 @@
+<h1><%= @list.name %></h1>
+<p> <%= @list.desc %> </p>
+<%= link_to "Edit List", edit_grocery_list_path(@list) %>
+|
+<%= link_to "Delete List", grocery_list_path(@list), method: :delete, data: { confirm: "You are deleting #{@list.name}. Do you really want to?" } %>
+<br /><br />
+
+<table class="items">
+  <% Category.all.each do |category| %>
+  <tr><th> <%= category.name %></th></tr>
+  <tr>
+    <td>
+      <ul id="<%= category.name %>">
+        <% if @list.items.where(category_id: category.id).empty? %>
+          <em> None yet </em>
+        <% else %>
+          <% @list.items.where(category_id: category.id).each do |item| %>
+            <li> <%= item.name %>  <%= link_to "x", delete_item_path(@list.id, item_id: item.id), id: "delete" %> </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <br /><br />
+      <%= form_for :grocery_list, url: {action: :add_item}  do |f| %>
+      <%= f.text_field :item_name %>
+      <%= f.hidden_field :category_id, value: category.id %>
+      <%= f.hidden_field :list_id, value: @list.id %>
+      <%= f.submit "Add Item" %>
+      <% end %>
+    </td>
+  </tr>
+  <tr class="break"></tr>
+  <% end %>
+</table>
+<br />
+<%= link_to "< Back to all Grocery Lists", grocery_lists_path %>
