@@ -1,9 +1,9 @@
+<div id="items">
 <fieldset class="new-item-fields">
-  <li>
     Item name:
-    <%= f.text_field :name %>
-    Category: 
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= text_field_tag "items[][name]" %>
+    Category:
+    <%= select_tag "items[][category]", options_from_collection_for_select(Category.all, "id", "name"), {include_blank: true} %>
     <%= link_to "remove", '#', class: "remove-fields" %>
-  </li>
 </fieldset>
+</div>

@@ -1,11 +1,19 @@
 <h1><%= @recipe.name %></h1>
 <p> <%= @recipe.desc %> </p>
 <h2 id="ingredients"> Ingredients: </h2>
+<% if @recipe.ingredients.present? %>
 <ul>
 <%  @recipe.items.each do |item| %>
-  <li> <%= item.name %> </li>
+  <li> <%= item.name %> <%= link_to "x", delete_ingredient_path(item_id: item.id), id: "delete" %> </li>
 <% end %>
 </ul>
+<% end %>
+<%= form_for :ingredient, url: {action: :add_ingredient}  do |f| %>
+  Add Ingredient: <%= f.text_field :name %>
+  <%= f.collection_select :category, Category.all, :id, :name, prompt: true %>
+  <%= f.hidden_field :recipe_id, value: @recipe.id %>
+  <%= f.submit "Submit" %>
+<% end %>
 <h2 id="steps"> Steps: </h2>
 <ol>
   <% @steps.each do |step| %>

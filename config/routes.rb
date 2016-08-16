@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :recipes
   post '/grocery_lists/:id/add', to: 'grocery_lists#add_item'
   get '/grocery_lists/:id/delete/:item_id', to: 'grocery_lists#delete_item', as: 'delete_item'
+  post '/recipes/:id/add', to: 'recipes#add_ingredient'
+  get '/recipes/:id/delete/:item_id', to: 'recipes#delete_ingredient', as: 'delete_ingredient'
+
 end

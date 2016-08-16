@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   include RecipesHelper
-  before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :find_recipe, except: [:index, :new]
 
   def find_recipe
     @recipe = Recipe.find(params[:id])
@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = RecipeManager.build_recipe(recipe_params)
+    @recipe = RecipeManager.build_recipe(recipe_params, params[:items])
     if @recipe.save
       flash.notice = "Recipe '#{@recipe.name}' Created!"
       redirect_to recipe_path(@recipe)
@@ -39,6 +39,18 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
+  def add_ingredient
+    @category = Category.find(params[:ingredient][:category])
+    RecipeManager.add_ingredient(@recipe, params[:ingredient][:name], @category)
+    redirect_to recipe_path(@recipe)
+  end
+
+  def delete_ingredient
+    @item = Item.find(params[:item_id])
+    @recipe.items.delete(@item)
+    redirect_to recipe_path(@recipe)
+  end
+
   def destroy
     @recipe.destroy
     flash.notice = "Grocery recipe '#{@recipe.name}' Deleted!"
@@ -47,6 +59,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :desc, :steps, items_attributes: [:id, :name, :category_id] )
+    params.require(:recipe).permit(:name, :desc, :steps)
   end
 end

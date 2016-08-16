@@ -4,21 +4,20 @@
 jQuery ->
   $(document).on 'click', '.remove-fields', (event) ->
     # If there's only one left don't allow
-    $(this).closest('fieldset').remove()
+    debugger;
+    t = $(this).closest('.new-item-fields')
+    t.remove()
+    $(t).find("input").attr("id").remove()
     event.preventDefault()
 
   $(document).on 'click', '.add-fields', (event) ->
-    count = $('.new-item-fields li').length
-    field = $('.new-item-fields li').first()
-        .clone()
-            .find('input')
-                .val('')
-                    .end()
+    count = $('.new-item-fields').length
+    field = $('.new-item-fields').last().clone().find('input') .val('').end()
                         .find('input')
-                            .prop({id: 'items_attributes_' + count + '_name', name: 'recipe[items_attributes][' + count + '][name]'  })
+                            .prop({id: 'item' + count, name: 'items[][name]'  })
                                 .end()
                                   .find('select')
-                                    .prop({id: 'items_attributes_' + count + '_category_id', name: 'recipe[items_attributes][' + count + '][category_id]'  })
+                                    .prop({id: 'item' + count + '_category', name: 'items[][category]'  })
                                       .end()
-    $('.new-item-fields').append(field)
+    $('#items').prepend(field)
     event.preventDefault()
