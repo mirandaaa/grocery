@@ -19,8 +19,11 @@ class GroceryListsController < ApplicationController
 
   def create
     @list = GroceryList.new(list_params)
-    @list.save
-    flash.notice = "Grocery List '#{@list.name}' Created!"
+    if @list.save?
+      flash.notice = "Grocery List '#{@list.name}' Created!"
+    else
+      flash.notice = "Grocery List '#{@list.name}' COULD NOT BE SAVED."
+    end
     redirect_to grocery_list_path(@list)
   end
 
@@ -28,8 +31,11 @@ class GroceryListsController < ApplicationController
   end
 
   def update
-    @list.update(list_params)
-    flash.notice = "Grocery List '#{@list.name}' Updated!"
+    if @list.update(list_params)
+      flash.notice = "Grocery List '#{@list.name}' Updated!"
+    else
+      flash.notice = "Grocery List '#{@list.name}' COULD NOT BE UPDATED."
+    end
     redirect_to grocery_list_path(@list)
   end
 
