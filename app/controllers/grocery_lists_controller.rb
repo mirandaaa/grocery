@@ -24,7 +24,7 @@ class GroceryListsController < ApplicationController
     else
       flash.notice = "Grocery List '#{@list.name}' COULD NOT BE SAVED."
     end
-    redirect_to grocery_list_path(@list)
+    redirect_to grocery_list_url(@list)
   end
 
   def edit
@@ -36,24 +36,24 @@ class GroceryListsController < ApplicationController
     else
       flash.notice = "Grocery List '#{@list.name}' COULD NOT BE UPDATED."
     end
-    redirect_to grocery_list_path(@list)
+    redirect_to grocery_list_url(@list)
   end
 
   def destroy
     @list.destroy
     flash.notice = "Grocery List '#{@list.name}' Deleted!"
-    redirect_to grocery_lists_path
+    redirect_to grocery_lists_url
   end
 
   def add_item
     @list.add_item(params[:grocery_list][:item_name], params[:grocery_list][:category_id])
-    redirect_to grocery_list_path(@list)
+    redirect_to grocery_list_url(@list)
   end
 
   def delete_item
     @item = Item.find(params[:item_id])
     @list.items.delete(@item)
-    redirect_to grocery_list_path(@list)
+    redirect_to grocery_list_url(@list)
   end
 
   private
